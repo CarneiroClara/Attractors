@@ -3,8 +3,10 @@ import SpriteKit
 
 public class SceneViewController: UIViewController {
     
-    var skView: SKView!
-    var skScene: GameScene!
+    var beeSkView: SKView!
+    var beeSkScene: GameScene!
+    var graphicSkView: SKView!
+    var graphicSkScene: GraphicGameScene!
     public var sceneSize: CGSize!
     
     public override func loadView() {
@@ -20,13 +22,25 @@ public class SceneViewController: UIViewController {
     }
     
     private func setupViews() {
-        let skViewSize = designConstants.beeScene(screenSize: self.sceneSize).size
-        self.skView = SKView(frame: CGRect(origin: CGPoint(x: 0, y: sceneSize.height * 0.1), size: skViewSize))
-        self.view.addSubview(self.skView)
         
-        self.skScene = GameScene(size: self.skView.frame.size)
-        self.skView.presentScene(self.skScene)
+        //Bee skView
+        let skViewSize = designConstants.beeScene(screenSize: sceneSize).size
+        self.beeSkView = SKView(frame: CGRect(origin: CGPoint(x: 0, y: sceneSize.height * 0.1), size: skViewSize))
+        self.view.addSubview(self.beeSkView)
         
+        self.beeSkScene = GameScene(size: self.beeSkView.frame.size)
+        self.beeSkView.presentScene(self.beeSkScene)
+        
+        //Graphic skView
+        
+        let graphicViewSize = designConstants.graphicScene(screenSize: sceneSize).size
+        self.graphicSkView = SKView(frame: CGRect(origin: CGPoint(x: 0, y: sceneSize.height * 0.5), size: graphicViewSize))
+        self.view.addSubview(self.graphicSkView)
+        
+        self.graphicSkScene = GraphicGameScene(size: self.graphicSkView.frame.size)
+        self.graphicSkView.presentScene(self.graphicSkScene)
+        
+        //Buttons
         let addButton: UIButton = {
             let buttonSize = designConstants.button(screenSize: self.sceneSize).size
             let button = UIButton(frame: CGRect(origin: CGPoint(x: sceneSize.width * 0.15, y: sceneSize.height * 0.01), size: buttonSize))
@@ -52,11 +66,11 @@ public class SceneViewController: UIViewController {
     }
     
     @objc func removeBee() {
-        self.skScene.removeBee()
+        self.beeSkScene.removeBee()
     }
     
     @objc func addBee() {
-        self.skScene.addBee()
+        self.beeSkScene.addBee()
     }
 }
 
@@ -64,6 +78,7 @@ extension SceneViewController {
     enum designConstants {
         case button(screenSize: CGSize)
         case beeScene(screenSize: CGSize)
+        case graphicScene(screenSize: CGSize)
         
         var size: CGSize {
             switch self {
@@ -71,6 +86,8 @@ extension SceneViewController {
                 return CGSize(width: screenSize.width * 0.3, height: screenSize.height * 0.08)
             case .beeScene(let screenSize):
                 return CGSize(width: screenSize.width, height: screenSize.height * 0.4)
+            case .graphicScene(let screenSize):
+                return CGSize(width: screenSize.width, height: screenSize.height * 0.5)
             }
         }
     }
