@@ -23,11 +23,21 @@
                             </skView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xav-xr-79G">
                                 <rect key="frame" x="170" y="553" width="35" height="30"/>
-                                <state key="normal" title="Start">
+                                <state key="normal" title="Add">
                                     <color key="titleColor" name="systemYellowColor" catalog="System" colorSpace="catalog"/>
                                 </state>
                                 <connections>
-                                    <action selector="startAction:" destination="BV1-FR-VrT" eventType="touchUpInside" id="fCU-F8-6nl"/>
+                                    <action selector="addAction:" destination="BV1-FR-VrT" eventType="touchUpInside" id="fCU-F8-6nl"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hhb-AQ-gB1">
+                                <rect key="frame" x="240" y="553" width="68" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Remove">
+                                    <color key="titleColor" name="systemYellowColor" catalog="System" colorSpace="catalog"/>
+                                </state>
+                                <connections>
+                                    <action selector="removeAction" destination="BV1-FR-VrT" eventType="touchUpInside" id="lJA-Fs-mU1"/>
                                 </connections>
                             </button>
                         </subviews>

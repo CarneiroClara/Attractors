@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		761A1F952246C496000838C0 /* Bee.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 761A1F942246C496000838C0 /* Bee.atlas */; };
 		A29A581D2245706B000426B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29A581C2245706B000426B3 /* AppDelegate.swift */; };
 		A29A581F2245706B000426B3 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A29A581E2245706B000426B3 /* GameScene.sks */; };
 		A29A58212245706B000426B3 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = A29A58202245706B000426B3 /* Actions.sks */; };
@@ -15,10 +16,10 @@
 		A29A58282245706B000426B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A29A58262245706B000426B3 /* Main.storyboard */; };
 		A29A582A2245706E000426B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A29A58292245706E000426B3 /* Assets.xcassets */; };
 		A29A582D2245706E000426B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A29A582B2245706E000426B3 /* LaunchScreen.storyboard */; };
-		A29A583B224584CC000426B3 /* Bee.atlas in Resources */ = {isa = PBXBuildFile; fileRef = A29A583A224584CC000426B3 /* Bee.atlas */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		761A1F942246C496000838C0 /* Bee.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Bee.atlas; sourceTree = "<group>"; };
 		A29A58192245706B000426B3 /* Attractors.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Attractors.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A29A581C2245706B000426B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A29A581E2245706B000426B3 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -29,7 +30,6 @@
 		A29A58292245706E000426B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A29A582C2245706E000426B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A29A582E2245706E000426B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A29A583A224584CC000426B3 /* Bee.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = Bee.atlas; path = ../../../../Downloads/Bee.atlas; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +62,7 @@
 		A29A581B2245706B000426B3 /* Attractors */ = {
 			isa = PBXGroup;
 			children = (
-				A29A583A224584CC000426B3 /* Bee.atlas */,
+				761A1F942246C496000838C0 /* Bee.atlas */,
 				A29A581C2245706B000426B3 /* AppDelegate.swift */,
 				A29A581E2245706B000426B3 /* GameScene.sks */,
 				A29A58202245706B000426B3 /* Actions.sks */,
@@ -138,7 +138,7 @@
 				A29A581F2245706B000426B3 /* GameScene.sks in Resources */,
 				A29A582A2245706E000426B3 /* Assets.xcassets in Resources */,
 				A29A582D2245706E000426B3 /* LaunchScreen.storyboard in Resources */,
-				A29A583B224584CC000426B3 /* Bee.atlas in Resources */,
+				761A1F952246C496000838C0 /* Bee.atlas in Resources */,
 				A29A58212245706B000426B3 /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

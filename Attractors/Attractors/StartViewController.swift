@@ -16,11 +16,6 @@ class StartViewController: UIViewController {
 
     var scene: StartScene?
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
@@ -36,16 +31,14 @@ class StartViewController: UIViewController {
 
     }
 
-    @IBAction func startAction(_ sender: Any) {
+    @IBAction func addAction(_ sender: Any) {
         if let scene = self.scene {
-            scene.flyBee()
+            scene.addBee()
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBAction func removeAction() {
+        guard let scene = self.scene else {return}
+        scene.removeBee()
     }
-
-
 }
