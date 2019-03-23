@@ -1,50 +1,34 @@
-//
-//  GameScene.swift
-//  Attractors
-//
-//  Created by Clara Carneiro on 22/03/2019.
-//  Copyright © 2019 Clara Carneiro. All rights reserved.
-//
-
 import SpriteKit
 import GameplayKit
 
-public class StartScene: SKScene {
-
+public class GameScene: SKScene {
+    
     var beeFrames: [SKTexture]?
     private let beeWidth: CGFloat = 44.5
     private let beeHeight: CGFloat = 35.25
     var bees: [SKSpriteNode] = []
 
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-
-    public override init(size: CGSize) {
-        super.init(size: size)
+    public override func didMove(to view: SKView) {
         self.backgroundColor = UIColor.white
         var frames:[SKTexture] = []
-        //Init sprite bee + anim
-        let beeAtlas = SKTextureAtlas(named: "Bee")
-
-        for index in 1 ... beeAtlas.textureNames.count {
+        
+        for index in 1 ... 6 {
             let textureName = "bee-\(index)"
-            let texture = beeAtlas.textureNamed(textureName)
-            frames.append(texture)
+            frames.append(SKTexture(imageNamed: textureName))
         }
-
+        
         self.beeFrames = frames
     }
-
+    
     //MARK: Bee management methods
     public func addBee() {
         
         //init position bee
-        let randomBeeYPositionGenerator = GKRandomDistribution(lowestValue: 100, highestValue: Int(self.frame.size.height))
+        let randomBeeYPositionGenerator = GKRandomDistribution(lowestValue: 0, highestValue: Int(self.frame.size.height))
         let yPosition = CGFloat(randomBeeYPositionGenerator.nextInt())
         
         let rightToLeft = arc4random() % 2 == 0
-
+        
         let xPosition = rightToLeft ? self.frame.size.width + self.beeWidth / 2 : -self.beeWidth / 2
         
         let bee = self.createBeeNode(onPostion: CGPoint(x: xPosition, y: yPosition))
@@ -54,7 +38,7 @@ public class StartScene: SKScene {
         
         let distance = self.frame.size.width + bee.size.width
         let time = TimeInterval(abs(distance / 140))
-
+        
         let allActions = SKAction.repeatForever(SKAction.sequence(setupBeeActions(rightToLeft: rightToLeft, time: time, distance: distance)))
         bee.run(allActions)
     }
@@ -83,9 +67,9 @@ public class StartScene: SKScene {
     
     private func setupBeeActions(rightToLeft: Bool, time: TimeInterval, distance: CGFloat) -> [SKAction] {
         return [setupFlyAction(forward: rightToLeft, time: time, distance: distance),
-            setupFlipAction(forward: rightToLeft),
-            setupFlyAction(forward: !rightToLeft, time: time, distance: distance),
-            setupFlipAction(forward: !rightToLeft)]
+                setupFlipAction(forward: rightToLeft),
+                setupFlyAction(forward: !rightToLeft, time: time, distance: distance),
+                setupFlipAction(forward: !rightToLeft)]
     }
     
     private func setupFlyAction(forward: Bool, time: TimeInterval, distance: CGFloat) -> SKAction {
@@ -96,4 +80,13 @@ public class StartScene: SKScene {
     private func setupFlipAction(forward: Bool) -> SKAction {
         return SKAction.scaleX(to: forward ? -1.0 : 1.0, duration: 0.0)
     }
+    
+    //
+    //    @objc static override var supportsSecureCoding: Bool {
+    //        // SKNode conforms to NSSecureCoding, so any subclass going
+    //        // through the decoding process must support secure coding
+    //        get {
+    //            return true
+    //        }
+    //    }
 }
